@@ -271,8 +271,9 @@ class SignUp extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text('Sign in',
-                                    style:
-                                        Theme.of(context).textTheme.headline4),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium),
                                 const SizedBox(height: 20),
                                 TextFormField(
                                   controller: _emailController,
@@ -333,7 +334,7 @@ class SignUp extends StatelessWidget {
                                 TextFormField(
                                   controller: _designation,
                                   validator: (value) {
-                                    if (value == null || value!.isEmpty) {
+                                    if (value == null || value.isEmpty) {
                                       return "Designation is Required.";
                                     }
                                     return null;
@@ -386,18 +387,18 @@ class SignUp extends StatelessWidget {
                                                 .getCurrentUserPosts(
                                                     uid: FirebaseAuth.instance
                                                         .currentUser!.uid);
-                                            // if (context
-                                            //         .read<AuthController>()
-                                            //         .appUser ==
-                                            //     null) {
-                                            //   Navigator.of(context)
-                                            //       .pushReplacementNamed(
-                                            //           AppRouter.onboarding);
-                                            // } else {
-                                            //   Navigator.of(context)
-                                            //       .pushReplacementNamed(
-                                            //           AppRouter.dashboard);
-                                            // }
+                                            if (context
+                                                    .read<AuthController>()
+                                                    .appUser ==
+                                                null) {
+                                              Navigator.of(context)
+                                                  .pushReplacementNamed(
+                                                      AppRouter.onboarding);
+                                            } else {
+                                              Navigator.of(context)
+                                                  .pushReplacementNamed(
+                                                      AppRouter.dashboard);
+                                            }
                                           }
                                         },
                                         child: const Text(
